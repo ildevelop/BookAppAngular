@@ -1,10 +1,10 @@
-import { UntitledPage } from './app.po';
+import { BookAppAngularPage } from './app.po';
 
-describe('untitled App', function() {
-  let page: UntitledPage;
+describe('BookAppAngular App', function() {
+  let page: BookAppAngularPage;
 
   beforeEach(() => {
-    page = new UntitledPage();
+    page = new BookAppAngularPage();
   });
 
   it('should display message saying app works', () => {

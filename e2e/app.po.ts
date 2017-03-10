@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class UntitledPage {
+export class BookAppAngularPage {
   navigateTo() {
     return browser.get('/');
   }
