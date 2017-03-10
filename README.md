@@ -6,4 +6,5 @@ This project was Ilya radu
 Run `ng serve` for a dev server - node. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Development client
+Try it your self! Application https://ildevelop.github.io/BookAppAngular/books
 
