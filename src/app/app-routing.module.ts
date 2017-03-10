@@ -9,9 +9,6 @@ const appRoutes: Routes = [
   {
     path: 'books',
     component: BookListComponent
-    //,
-    // loadChildren: 'app/store/books/book.module#BookModule',
-    // data: { preload: true }
   },
 ];
 @NgModule({

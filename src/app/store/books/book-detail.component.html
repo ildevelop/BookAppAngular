@@ -1,15 +1,20 @@
 <div class='panel panel-success'>
     <div class='panel-heading'>
         {{pageTitle}}
-        {{id}}
-        {{author}}
-        {{date}}
-      {{sequence_i}}
-      {{genre_s}}
-      {{inStock}}
-      {{price}}
-      {{starRating}}
-      {{pages_i}}
+        {{book.id}}
+        {{book.author}}
+        {{book.date}}
+      {{book.sequence_i}}
+      {{book.genre_s}}
+      {{book.inStock}}
+      {{book.price}}
+      {{book.starRating}}
+      {{book.pages_i}}
+      <img
+           [src]='book.image'
+           [title]='book.title'
+           [style.width.px]='imageWidth'
+           [style.margin.px]='imageMargin'>
 
     </div>
   <div><h1>{{book.title}}</h1></div>

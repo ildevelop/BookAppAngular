@@ -46,22 +46,38 @@
             <td>{{ book.inStock }}</td>
             <td>{{ book.price | currency:'USD':true:'1.2-2'}}</td>
             <td>
-              <button class="btn-info" (click)="editBook(book.id)">Edit</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#edit' + book.id">Edit</button>
+              <div [attr.id]="'edit'+book.id" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <h2>Edit: {{book.title}} </h2>
+                          <div class="col-xs-2">
+                            <label for="bookTitle">Title</label>
+                            <input type="text" [value]="book.title" class="form-control" id="bookTitle"  (input)="book.title=$event.target.value">
+                          </div>
+                          <div class="col-xs-2">
+                            <label for="bookPrice">Price</label>
+                            <input type="number"  [value]="book.price" class="form-control" id="bookPrice" (input)="book.price=$event.target.value">
+                          </div>
+                          <div class="col-xs-2">
+                            <label for="starRating">Stars</label>
+                            <input type="text" [value]="book.starRating" class="form-control" id="starRating"  (input)="book.starRating=$event.target.value">
+                          </div>
+                          <div class="col-xs-2 btn-user">
+                            <button class="btn btn-success btn-lg" type="submit" (click)="editBook(book, $event)" data-dismiss="modal">Edit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
-            <div *ngIf="editBookBool">
-              <tr>
-                <td>
-                  <label for="title">title</label>
-                  <input type="text" [value]="book.title" class="form-control" id="title"  (input)="book.title=$event.target.value">
-                </td>
-                <td>{{ book.author | lowercase }}</td>
-                <td>{{ book.date }}</td>
-                <td>{{ book.inStock }}</td>
-                <td>{{ book.price | currency:'USD':true:'1.2-2'}}</td>
-              </tr>
-            </div>
             <td>
-              <button class="btn-danger" (click)="deleteBook(book.id)">Delete</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
             </td>
 
           </tr>

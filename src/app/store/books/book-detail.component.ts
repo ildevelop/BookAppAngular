@@ -11,15 +11,9 @@ import {Observable} from "rxjs";
 export class BookDetailComponent implements OnInit {
     pageTitle: string = 'Book Detail';
   id : number ;
-  author: string;
-  date: string;
-  sequence_i: number;
-  genre_s: string;
-  inStock: boolean;
-  price: number;
-  starRating: number;
-  pages_i: number;
   book: Book ;
+  imageWidth: number = 200;
+  imageMargin: number = 5;
 
     constructor(private _route: ActivatedRoute,
                 private _router: Router, private bookService: BookService) {

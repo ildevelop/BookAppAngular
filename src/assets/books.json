@@ -9,6 +9,7 @@
     "genre_s" : "fantasy",
     "inStock" : true,
     "price" : 12.50,
+    "starRating": 4,
     "pages_i" : 384
   }
 ,
@@ -22,6 +23,7 @@
     "genre_s" : "fantasy",
     "inStock" : true,
     "price" : 6.49,
+    "starRating": 5,
     "pages_i" : 304
   }
 ,
@@ -35,6 +37,7 @@
     "genre_s" : "fantasy",
     "inStock" : true,
     "price" : 3.07,
+    "starRating": 3,
     "pages_i" : 64
   }
 ,
@@ -48,6 +51,7 @@
     "genre_s" : "IT",
     "inStock" : true,
     "price" : 30.50,
+    "starRating": 5,
     "pages_i" : 475
   }
 ]

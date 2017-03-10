@@ -14,9 +14,8 @@ export class BookListComponent implements OnInit {
     showImage: boolean = false;
     listFilter: string;
     errorMessage: string;
-
+    book: Book;
     books: Book[];
-    editBookBool: boolean= false;
 
     constructor(private bookService: BookService) {
 
@@ -25,21 +24,21 @@ export class BookListComponent implements OnInit {
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
-
+    //fetch the books from the service and initialize them to the books []
     ngOnInit(): void {
         this.bookService.getBooks()
                 .subscribe(books => this.books = books,
                            error => this.errorMessage = <any>error);
     }
-  deleteBook(id: number){
+    // delete the book from the array , in  production we will use
+    // bookService to use DELETE request to the backend
+    deleteBook(id: number){
       this.books.splice(id-1, 1);
-  }
-  editBook(id:number){
-
-      if(this.bookService.getBooks()){
-
-      }
-  }
-
+    }
+    // updates the book from the array , in  production we will use
+    // bookService to use PUT request to the backend
+    editBook(book: Book, event:any){
+      this.books[book.id-1] = book;
+    }
 
 }
