@@ -35,7 +35,7 @@
     "image": "http://akamaicovers.oreilly.com/images/0636920033486/cat.gif",
     "sequence_i" : 1,
     "genre_s" : "fantasy",
-    "inStock" : true,
+    "inStock" : false,
     "price" : 3.07,
     "starRating": 3,
     "pages_i" : 64

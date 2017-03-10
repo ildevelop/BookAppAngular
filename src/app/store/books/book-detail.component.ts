@@ -24,7 +24,13 @@ export class BookDetailComponent implements OnInit {
         this.book = this.getBook(id);
         this.pageTitle += `: ${id}`;
     }
-
+  getStars(num: number): number[]{
+     let numbers : number[] = [];
+     for(let i=0;i<num;i++){
+       numbers.push(i);
+     }
+      return numbers;
+  }
     onBack(): void {
         this._router.navigate(['/books']);
     }

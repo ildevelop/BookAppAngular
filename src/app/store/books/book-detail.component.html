@@ -1,28 +1,33 @@
-<div class='panel panel-success'>
-    <div class='panel-heading'>
-        {{pageTitle}}
-        {{book.id}}
-        {{book.author}}
-        {{book.date}}
-      {{book.sequence_i}}
-      {{book.genre_s}}
-      {{book.inStock}}
-      {{book.price}}
-      {{book.starRating}}
-      {{book.pages_i}}
-      <img
-           [src]='book.image'
-           [title]='book.title'
-           [style.width.px]='imageWidth'
-           [style.margin.px]='imageMargin'>
+<div class='container'>
+      <div class="col-lg-3">
+        <img
+          [src]='book.image'
+          [title]='book.title'
+          [style.width.px]='imageWidth'
+          [style.margin.px]='imageMargin'>
+      </div>
+      <div class="col-lg-6">
+        <h3>Details {{pageTitle}}</h3>
+        <p>Author: {{book.author}}</p><br>
+        <p>Date: {{book.date}}</p><br>
+        <p>Sequence: {{book.sequence_i}}</p><br>
+        <p>Ganre: {{book.genre_s}}</p><br>
+        <div *ngIf="book.inStock">
+          <p><i class="glyphicon glyphicon-ok"></i>in stock</p><br>
+        </div><div *ngIf="!book.inStock">
+        <p><i class="glyphicon glyphicon-remove"></i>out of stock</p><br>
+      </div>
+        <p>Price: {{book.price}}$</p><br>
+        <div class="row" *ngFor="let num of getStars(book.starRating)">
+          <div class="glyphicon glyphicon-star-empty"></div>
+        </div>
+        <p>{{book.pages_i}}</p><br>
+      </div>
 
-    </div>
-  <div><h1>{{book.title}}</h1></div>
-
-    <div class='panel-footer'>
+    <div class='col-lg-pull-3'>
         <a class='btn btn-default' (click)='onBack()' style='width:80px'>
             <i class='glyphicon glyphicon-chevron-left'></i> Back
         </a>
     </div>
-
 </div>
+
