@@ -1,0 +1,75 @@
+
+<div class="container">
+  <div class='panel'>
+    <div class='panel-body'>
+      <div class='row'>
+        <div>
+          <form class="form-inline my-2 my-lg-0">
+            <p>Filtered by: {{listFilter}} </p>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" (input)="listFilter=$event.target.value"  [value]="listFilter" >
+          </form>
+        </div>
+      </div>
+      <div class='table-responsive'>
+        <table class='table'
+               *ngIf="books && books.length">
+          <thead>
+          <tr>
+            <th>
+              <button class='btn btn-primary'
+                      (click)='toggleImage()'>
+                {{showImage ? 'Hide' : 'Show'}} Image
+              </button>
+            </th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Release Date</th>
+            <th>InStock</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor='let book of books | bookFilter:listFilter'>
+            <td>
+              <img *ngIf='showImage'
+                   [src]='book.image'
+                   [title]='book.title'
+                   [style.width.px]='imageWidth'
+                   [style.margin.px]='imageMargin'>
+            </td>
+            <td><a routerLink="{{book.id}}" routerLinkActive="active" >
+              {{book.title}}
+            </a></td>
+            <td>{{ book.author | lowercase }}</td>
+            <td>{{ book.date }}</td>
+            <td>{{ book.inStock }}</td>
+            <td>{{ book.price | currency:'USD':true:'1.2-2'}}</td>
+            <td>
+              <button class="btn-info" (click)="editBook(book.id)">Edit</button>
+            </td>
+            <div *ngIf="editBookBool">
+              <tr>
+                <td>
+                  <label for="title">title</label>
+                  <input type="text" [value]="book.title" class="form-control" id="title"  (input)="book.title=$event.target.value">
+                </td>
+                <td>{{ book.author | lowercase }}</td>
+                <td>{{ book.date }}</td>
+                <td>{{ book.inStock }}</td>
+                <td>{{ book.price | currency:'USD':true:'1.2-2'}}</td>
+              </tr>
+            </div>
+            <td>
+              <button class="btn-danger" (click)="deleteBook(book.id)">Delete</button>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</div>
