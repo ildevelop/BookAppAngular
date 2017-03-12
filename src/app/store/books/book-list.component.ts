@@ -59,7 +59,7 @@ export class BookListComponent implements OnInit ,AfterViewChecked {
       this.books.push(book);
     }
     initBook(){
-    this.newBook= new Book('111',"","","","",0,"",false,0,0,0);
+    this.newBook= new Book('111',"","","","",0,"","",0,0,0);
     // this.newBook.id=BookListComponent.counter;
     console.log("book="+this.newBook);
     }

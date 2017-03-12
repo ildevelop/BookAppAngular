@@ -15,38 +15,41 @@
           <div class="modal-content">
             <div class="modal-body">
               <form>
-                <div class="form-group">
-                  <div class="col-xs-1">
+                <div class="form-group" >
+                  <div class="form-group col-xs-1"
+                       [class.has-success]="newBook.title&&newBook.title.length>4&&newBook.title.length<24"
+                       [class.has-error]="!newBook.title||(newBook.title.length<4&&newBook.title.length>24)">
                     <label for="addTitle">Title</label>
                     <input type="text"
+
                            ngModel  id="addTitle" class="form-control"
                            required minlength="4" maxlength="24"
                            name="title" [(ngModel)]="newBook.title"
                            #addTitle="ngModel"
                           >
                   </div>
-                  <div class="col-xs-1">
+                  <div class="form-group col-xs-1" [class.has-success]="newBook.date" [class.has-error]="!newBook.date">
                     <label for="addauthor">Author</label>
                     <input type="text"  class="form-control" id="addauthor" ngModel  name="author" [(ngModel)]="newBook.author"
-                           #addAuthor="ngModel" required />
+                             #addAuthor="ngModel" required />
                   </div>
-                  <div class="col-xs-2">
+                  <div class="form-group col-xs-2" [class.has-success]="newBook.date" [class.has-error]="!newBook.date">
                     <label for="addDate">Date</label>
                     <input type="date" class="form-control" id="addDate" ngModel  name="date" [(ngModel)]="newBook.date" #addDate="ngModel"  >
                   </div>
-                  <div class="col-xs-1">
-                    <label for="addGenre">Genre</label>
+                  <div class="form-group col-xs-1 " [class.has-success]="newBook.genre_s" [class.has-error]="!newBook.genre_s">
+                    <label for="addGenre" >Genre</label>
                     <input type="text" class="form-control" id="addGenre" ngModel  name="genre" [(ngModel)]="newBook.genre_s" >
                   </div>
-                  <div class="col-xs-1">
+                  <div class="form-group col-xs-1" [class.has-success]="newBook.price" [class.has-error]="!newBook.price">
                     <label for="addPrece">Price</label>
                     <input type="number" class="form-control" id="addPrece" ngModel  name="price" [(ngModel)]="newBook.price">
                   </div>
-                  <div class="col-xs-1">
+                  <div class="form-group col-xs-1" [class.has-success]="newBook.sequence_i" [class.has-error]="!newBook.sequence_i">
                     <label for="addSequence">Sequence</label>
                     <input type="text" class="form-control" id="addSequence" ngModel  name="sequence" [(ngModel)]="newBook.sequence_i">
                   </div>
-                  <div class="col-xs-1">
+                  <div class="form-group col-xs-1" [class.has-success]="newBook.pages_i" [class.has-error]="!newBook.pages_i">
                     <label for="addPage">Page</label>
                     <input type="number" class="form-control" id="addPage" ngModel  name="page" [(ngModel)]="newBook.pages_i">
                   </div>
@@ -120,7 +123,9 @@
                       <form  >
                         <div class="form-group">
                           <h2>Edit: {{book.title}} </h2>
-                          <div class="col-xs-3">
+                          <div class="form-group col-xs-3"
+                               [class.has-success]="book.title&&newBook.title.length>4&&newBook.title.length<24"
+                               [class.has-error]="!book.title||(newBook.title.length<4&&newBook.title.length>24)">
                              <label for="title">Title</label>
                             <input
                               ngModel type="text" id="title" class="form-control"
@@ -140,7 +145,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-xs-3">
+                          <div class="form-group col-xs-3"
+                               [class.has-success]="book.price"
+                               [class.has-error]="!book.price" >
                             <!--<label for="bookPrice">Price</label>-->
                             <!--<input type="number"  [value]="book.price" class="form-control" id="bookPrice" (input)="book.price=$event.target.value">-->
                             <label for="price">Price</label>
@@ -159,7 +166,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-xs-3">
+                          <div class="form-group col-xs-3"
+                               [class.has-success]="book.starRating&&(book.starRating>0||book.starRating<6)"
+                               [class.has-error]="!book.starRating&&(book.starRating<1||book.starRating>5)">
                             <!--<label for="starRating">Stars</label>-->
                             <!--<input type="text" [value]="book.starRating" class="form-control" id="starRating"  (input)="book.starRating=$event.target.value">-->
                             <label for="stars">Stars</label>
