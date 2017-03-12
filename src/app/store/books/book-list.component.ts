@@ -43,8 +43,10 @@ export class BookListComponent implements OnInit ,AfterViewChecked {
     }
     // delete the book from the array , in  production we will use
     // bookService to use DELETE request to the backend with body of id number
-    deleteBook(id: number){
-      this.books.splice(id-1, 1);
+    deleteBook(book: Book){
+      let index =this.books.indexOf(book);
+      this.books.splice(index, 1);
+
     }
     // updates the book from the array , in  production we will use
     // bookService to use PUT request to the backend with body of book entity

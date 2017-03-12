@@ -28,7 +28,7 @@
                            #addTitle="ngModel"
                           >
                   </div>
-                  <div class="form-group col-xs-1" [class.has-success]="newBook.date" [class.has-error]="!newBook.date">
+                  <div class="form-group col-xs-1" [class.has-success]="newBook.author" [class.has-error]="!newBook.author">
                     <label for="addauthor">Author</label>
                     <input type="text"  class="form-control" id="addauthor" ngModel  name="author" [(ngModel)]="newBook.author"
                              #addAuthor="ngModel" required />
@@ -187,7 +187,7 @@
                             </div>
                           </div>
                           <div class="col-xs-3 btn-user">
-                            <button class="btn btn-success btn-sm btn-smm" type="submit" (click)="editBook(book, $event)" data-dismiss="modal">Edit</button>
+                            <button class="btn btn-success btn-sm btn-smm" (click)="editBook(book, $event)" data-dismiss="modal">Approve</button>
                           </div>
                         </div>
                       </form>
@@ -202,14 +202,15 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <form onsubmit=deleteBook(book.id) >
+                      <form>
                         <div class="form-group">
                           <h2>Delete: {{book.title}} </h2>
                             <span>"are you sure you want to delete?"</span>
-                            <button class="btn btn-danger btn-sm" >Delete</button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteBook(book)" data-dismiss="modal" >
+                         Delete</button>
 
                         </div>
-                      </form>
+                    </form>
                     </div>
                   </div>
                 </div>
