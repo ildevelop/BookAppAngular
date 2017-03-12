@@ -1,0 +1,10 @@
+.navbar-nav a{
+  background: #a8f0fa;
+  color: #305;
+  transition: all .8s;
+}
+
+.navbar-nav a:hover{
+  background: #305;
+  color: #a8f0fa;
+}

@@ -7,7 +7,7 @@
           [style.margin.px]='imageMargin'>
       </div>
       <div class="col-lg-6">
-        <h3>Details {{pageTitle}}</h3>
+        <h3>Details {{book.title}}</h3>
         <p>Author: {{book.author}}</p><br>
         <p>Date: {{book.date}}</p><br>
         <p>Sequence: {{book.sequence_i}}</p><br>
@@ -17,9 +17,9 @@
         </div><div *ngIf="!book.inStock">
         <p><i class="glyphicon glyphicon-remove"></i>out of stock</p><br>
       </div>
-        <p>Price: {{book.price}}$</p><br>
+        <p>Price: {{book.price}}$</p>
         <div class="row" *ngFor="let num of getStars(book.starRating)">
-          <div class="glyphicon glyphicon-star-empty"></div>
+          <span class="glyphicon glyphicon-star-empty"></span>
         </div>
         <p>{{book.pages_i}}</p><br>
       </div>

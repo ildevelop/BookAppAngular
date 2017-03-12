@@ -5,8 +5,61 @@
     <div>
       <form class="col-xs-6">
         <p>Filtered by: {{listFilter}} </p>
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" (input)="listFilter=$event.target.value"  >
+        <input class="form-control  mr-sm-2" type="text" placeholder="Search" (input)="listFilter=$event.target.value"  >
       </form>
+      <div class="col-xs-6">
+        <button class="addButton btn btn-success" type="button"  data-toggle="modal" [attr.data-target]="'#addUser'">Create New Book !</button>
+      </div>
+      <div [attr.id]="'addUser'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <div class="col-xs-1">
+                    <label for="addTitle">Title</label>
+                    <input type="text"
+                           ngModel  id="addTitle" class="form-control"
+                           required minlength="4" maxlength="24"
+                           name="title" [(ngModel)]="newBook.title"
+                           #addTitle="ngModel"
+                          >
+                  </div>
+                  <div class="col-xs-1">
+                    <label for="addauthor">Author</label>
+                    <input type="text"  class="form-control" id="addauthor" ngModel  name="author" [(ngModel)]="newBook.author"
+                           #addAuthor="ngModel" required />
+                  </div>
+                  <div class="col-xs-2">
+                    <label for="addDate">Date</label>
+                    <input type="date" class="form-control" id="addDate" ngModel  name="date" [(ngModel)]="newBook.date" #addDate="ngModel"  >
+                  </div>
+                  <div class="col-xs-1">
+                    <label for="addGenre">Genre</label>
+                    <input type="text" class="form-control" id="addGenre" ngModel  name="genre" [(ngModel)]="newBook.genre_s" >
+                  </div>
+                  <div class="col-xs-1">
+                    <label for="addPrece">Price</label>
+                    <input type="number" class="form-control" id="addPrece" ngModel  name="price" [(ngModel)]="newBook.price">
+                  </div>
+                  <div class="col-xs-1">
+                    <label for="addSequence">Sequence</label>
+                    <input type="text" class="form-control" id="addSequence" ngModel  name="sequence" [(ngModel)]="newBook.sequence_i">
+                  </div>
+                  <div class="col-xs-1">
+                    <label for="addPage">Page</label>
+                    <input type="number" class="form-control" id="addPage" ngModel  name="page" [(ngModel)]="newBook.pages_i">
+                  </div>
+                  <div class="col-xs-1 btn-user">
+                    <button class="btn btn-success btn-sm" type="submit" (click)="createBook(newBook, $event)" data-dismiss="modal">Add Book</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -53,25 +106,76 @@
           </div>
             <td>{{ book.price | currency:'USD':true:'1.2-2'}}</td>
             <td>
+
+
+
+
+            </td>
+            <td>
               <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" [attr.data-target]="'#edit' + book.id">Edit</button>
               <div [attr.id]="'edit'+book.id" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <form>
+                      <form  >
                         <div class="form-group">
                           <h2>Edit: {{book.title}} </h2>
                           <div class="col-xs-3">
-                            <label for="bookTitle">Title</label>
-                            <input type="text" [value]="book.title" class="form-control" id="bookTitle"  (input)="book.title=$event.target.value">
+                             <label for="title">Title</label>
+                            <input
+                              ngModel type="text" id="title" class="form-control"
+                                   required minlength="4" maxlength="24"
+                                   name="title" [(ngModel)]="book.title"
+                                   #title="ngModel" />
+                            <div *ngIf="title.errors && (title.dirty || title.touched)"
+                                 class="alert alert-danger">
+                              <div [hidden]="!title.errors.required">
+                                Title is required
+                              </div>
+                              <div [hidden]="!title.errors.minlength">
+                                Title must be at least 4 characters long.
+                              </div>
+                              <div [hidden]="!title.errors.maxlength">
+                                Title cannot be more than 24 characters long.
+                              </div>
+                            </div>
                           </div>
                           <div class="col-xs-3">
-                            <label for="bookPrice">Price</label>
-                            <input type="number"  [value]="book.price" class="form-control" id="bookPrice" (input)="book.price=$event.target.value">
+                            <!--<label for="bookPrice">Price</label>-->
+                            <!--<input type="number"  [value]="book.price" class="form-control" id="bookPrice" (input)="book.price=$event.target.value">-->
+                            <label for="price">Price</label>
+                            <input
+                              ngModel type="number" id="price" class="form-control"
+                              required min="1"
+                              name="price" [(ngModel)]="book.price"
+                              #price="ngModel" />
+                            <div *ngIf="price.errors && (price.dirty || price.touched)"
+                                 class="alert alert-danger">
+                              <div [hidden]="!price.errors.required">
+                                Price is required
+                              </div>
+                              <div [hidden]="!price.errors.min">
+                                Price must be, this is not free store :).
+                              </div>
+                            </div>
                           </div>
                           <div class="col-xs-3">
-                            <label for="starRating">Stars</label>
-                            <input type="text" [value]="book.starRating" class="form-control" id="starRating"  (input)="book.starRating=$event.target.value">
+                            <!--<label for="starRating">Stars</label>-->
+                            <!--<input type="text" [value]="book.starRating" class="form-control" id="starRating"  (input)="book.starRating=$event.target.value">-->
+                            <label for="stars">Stars</label>
+                            <input
+                              ngModel type="number" id="stars" class="form-control"
+                               min="1" max="5"
+                              name="stars" [(ngModel)]="book.starRating"
+                              #stars="ngModel" required/>
+                            <div *ngIf="book.starRating>5" class="alert alert-danger"> 5 Stars max size.</div>
+                            <div *ngIf="book.starRating<1" class="alert alert-danger">Stars must be more 1.</div>
+                            <div *ngIf="stars.errors && (stars.dirty || stars.touched)"
+                                 class="alert alert-danger">
+                              <div [hidden]="!stars.errors.required">
+                                Stars is required
+                              </div>
+                            </div>
                           </div>
                           <div class="col-xs-3 btn-user">
                             <button class="btn btn-success btn-sm btn-smm" type="submit" (click)="editBook(book, $event)" data-dismiss="modal">Edit</button>
@@ -84,7 +188,23 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
+              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" [attr.data-target]="'#delete' + book.id">Delete</button>
+              <div [attr.id]="'delete'+book.id" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <form onsubmit=deleteBook(book.id) >
+                        <div class="form-group">
+                          <h2>Delete: {{book.title}} </h2>
+                            <span>"are you sure you want to delete?"</span>
+                            <button class="btn btn-danger btn-sm" >Delete</button>
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
 
           </tr>

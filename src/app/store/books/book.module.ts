@@ -7,11 +7,17 @@ import {BookFilterPipe} from "./book-filter.pipe";
 import {CommonModule} from "@angular/common";
 import {BookRoutingModule} from "./book-routing.module";
 
+import { FormsModule }  from '@angular/forms';
+
+
+
 
 @NgModule({
   imports: [
     BookRoutingModule,
-    CommonModule
+    CommonModule,
+    FormsModule
+
   ],
   declarations: [
     BookListComponent,
