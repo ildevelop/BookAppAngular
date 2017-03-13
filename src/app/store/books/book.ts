@@ -3,7 +3,7 @@ export class Book {
     id : number ;
     title: string;
     author: string;
-    date: string;
+    date: Date;
     image: string;
     sequence_i: number;
     genre_s: string;

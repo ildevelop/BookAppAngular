@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild, AfterViewChecked} from '@angular/core';
+import {Component,OnInit, ViewChild, AfterViewChecked} from '@angular/core';
 
 import { Book } from './book';
 import { BookService } from './book.service';
 import {NgForm} from "@angular/forms";
+import {timeInterval} from "rxjs/operator/timeInterval";
 
 @Component({
     templateUrl: './book-list.component.html',
@@ -61,9 +62,26 @@ export class BookListComponent implements OnInit ,AfterViewChecked {
       this.books.push(book);
     }
     initBook(){
-    this.newBook= new Book('111',"","","","",0,"","",0,0,0);
+    this.newBook= new Book('111',"","","01-01-2017","",0,"","",0,0,0);
     // this.newBook.id=BookListComponent.counter;
     console.log("book="+this.newBook);
     }
+  checkDate(date: Date): boolean {
+
+    let result : boolean ;
+    if(date) {
+      result=this.validateDate(date);
+    }else {
+      result= false;
+    }
+    return result;
+  }
+
+  validateDate(date: Date):boolean {
+    console.log("month="+date.getMonth()+"day="+date.getDay()+"year="+date.getFullYear());
+    return date< new Date() && date.getMonth() <=12&&date.getMonth() >0&&
+      date.getDay()<32&& date.getDay()>0 && date.getFullYear()<=new Date().getFullYear()&&
+      date.getFullYear()>1700;
+  }
 
 }

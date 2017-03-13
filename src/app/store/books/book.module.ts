@@ -8,6 +8,8 @@ import {CommonModule} from "@angular/common";
 import {BookRoutingModule} from "./book-routing.module";
 
 import { FormsModule }  from '@angular/forms';
+import {TitleFilterPipe} from "./title.pipe";
+import {DateFilterPipe} from "./date-filter.pipe";
 
 
 
@@ -22,7 +24,9 @@ import { FormsModule }  from '@angular/forms';
   declarations: [
     BookListComponent,
     BookDetailComponent,
-    BookFilterPipe
+    BookFilterPipe,
+    TitleFilterPipe,
+    DateFilterPipe
   ]
 })
 export class BookModule { }
