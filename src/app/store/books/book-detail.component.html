@@ -7,7 +7,7 @@
           [style.margin.px]='imageMargin'>
       </div>
       <div class="col-lg-6">
-        <h3>Details {{book.title}}</h3>
+        <h3>Details {{ book.title | titleFilter }}</h3>
         <p>Author: {{book.author}}</p><br>
         <p>Date: {{book.date}}</p><br>
         <p>Sequence: {{book.sequence_i}}</p><br>
