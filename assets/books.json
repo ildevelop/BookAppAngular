@@ -1,9 +1,9 @@
 [
   {
     "id" : "1",
-    "title" : "The Lightning Thief",
+    "title" : "!2422@The #Lightning ? Thief",
     "author" : "Rick Riordan",
-    "date": "2010-05-12",
+    "date": "2000-05-12",
     "image": "http://www.itbs.co.uk/images/beginning_linux_programming.jpg",
     "sequence_i" : 1,
     "genre_s" : "fantasy",
@@ -15,7 +15,7 @@
 ,
   {
     "id" : "2",
-    "title" : "The Sea of Monsters",
+    "title" : "@@THIS is a BooK!!",
     "author" : "Rick Riordan",
     "date": "2007-03-31",
     "image": "https://d2sis3lil8ndrq.cloudfront.net/books/angularjs1_large_3d.png",
