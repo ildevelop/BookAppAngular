@@ -14,7 +14,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-body">
-              <form>
+              <form #bookForm="ngForm">
                 <div class="form-group" >
                   <div class="form-group col-xs-1"
                        [class.has-success]="newBook.title&&newBook.title.length>4&&newBook.title.length<24"
@@ -28,21 +28,21 @@
                   </div>
                   <div class="form-group col-xs-1" [class.has-success]="newBook.author" [class.has-error]="!newBook.author">
                     <label for="addauthor">Author</label>
-                    <input type="text"  class="form-control" id="addauthor" ngModel  name="author" [(ngModel)]="newBook.author" required />
+                    <input type="text"  class="form-control" id="addauthor" ngModel  name="author" #addAuthor="ngModel" [(ngModel)]="newBook.author" required />
                   </div>
                   <div class="form-group col-xs-2" [class.has-success]="newBook.date"
                        [class.has-error]="!newBook.date">
                     <label for="addDate">Date</label>
-                    <input type="date" class="form-control" id="addDate" ngModel  name="date" [(ngModel)]="newBook.date"  >
+                    <input type="date" class="form-control" id="addDate" ngModel  name="date" #addDate="ngModel" [(ngModel)]="newBook.date" required >
 
                   </div>
                   <div class="form-group col-xs-1 " [class.has-success]="newBook.genre_s" [class.has-error]="!newBook.genre_s">
                     <label for="addGenre" >Genre</label>
-                    <input type="text" class="form-control" id="addGenre" ngModel  name="genre" [(ngModel)]="newBook.genre_s" >
+                    <input type="text" class="form-control" id="addGenre" #addGenre="ngModel" ngModel  name="genre" [(ngModel)]="newBook.genre_s" required>
                   </div>
                   <div class="form-group col-xs-1" [class.has-success]="newBook.price" [class.has-error]="!newBook.price">
                     <label for="addPrece">Price</label>
-                    <input type="number" class="form-control" id="addPrece" ngModel  name="price" [(ngModel)]="newBook.price">
+                    <input type="number" class="form-control" id="addPrece" #addPrice="ngModel" ngModel  name="price" [(ngModel)]="newBook.price" required>
                   </div>
                   <div class="form-group col-xs-1" [class.has-success]="newBook.sequence_i" [class.has-error]="!newBook.sequence_i">
                     <label for="addSequence">Sequence</label>
@@ -53,7 +53,7 @@
                     <input type="number" class="form-control" id="addPage" ngModel  name="page" [(ngModel)]="newBook.pages_i">
                   </div>
                   <div class="col-xs-1 btn-user">
-                    <button class="btn btn-success btn-sm" type="submit"  (click)="createBook(newBook, $event)" data-dismiss="modal">Add Book</button>
+                    <button class="btn btn-success btn-sm" type="submit"  [disabled]="!bookForm.form.valid" (click)="createBook(newBook, $event)" data-dismiss="modal">Add Book</button>
                   </div>
                 </div>
               </form>
