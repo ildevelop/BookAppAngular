@@ -1,0 +1,57 @@
+[
+  {
+    "id" : "1",
+    "title" : "!2422@The #Lightning ? Thief",
+    "author" : "Rick Riordan",
+    "date": "2000-05-12",
+    "image": "http://www.itbs.co.uk/images/beginning_linux_programming.jpg",
+    "sequence_i" : 1,
+    "genre_s" : "fantasy",
+    "inStock" : true,
+    "price" : 12.50,
+    "starRating": 4,
+    "pages_i" : 384
+  }
+,
+  {
+    "id" : "2",
+    "title" : "@@THIS is a BooK!!",
+    "author" : "Rick Riordan",
+    "date": "2007-03-31",
+    "image": "https://d2sis3lil8ndrq.cloudfront.net/books/angularjs1_large_3d.png",
+    "sequence_i" : 2,
+    "genre_s" : "fantasy",
+    "inStock" : true,
+    "price" : 6.49,
+    "starRating": 5,
+    "pages_i" : 304
+  }
+,
+  {
+    "id" : "3",
+    "title" : "Sophie's World : The Greek Philosophers",
+    "author" : "Jostein Gaarder",
+    "date": "1996-08-16",
+    "image": "http://akamaicovers.oreilly.com/images/0636920033486/cat.gif",
+    "sequence_i" : 1,
+    "genre_s" : "fantasy",
+    "inStock" : false,
+    "price" : 3.07,
+    "starRating": 3,
+    "pages_i" : 64
+  }
+,
+  {
+    "id" : "4",
+    "title" : "Lucene in Action, Second Edition",
+    "author" : "Michael McCandless",
+    "date": "2002-06-01",
+    "image": "https://paraduxmedia.com/wp-content/uploads/2014/07/brand-books-examples.jpg",
+    "sequence_i" : 1,
+    "genre_s" : "IT",
+    "inStock" : true,
+    "price" : 30.50,
+    "starRating": 5,
+    "pages_i" : 475
+  }
+]
